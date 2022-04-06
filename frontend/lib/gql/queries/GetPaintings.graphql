@@ -1,0 +1,20 @@
+query GetPaintings {
+  paintings {
+    data {
+      attributes {
+        Title
+        Artist
+        Image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        Description
+        Price
+        Slug
+      }
+    }
+  }
+}

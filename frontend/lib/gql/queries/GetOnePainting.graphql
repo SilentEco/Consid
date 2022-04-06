@@ -1,0 +1,20 @@
+query GetOnePainting($slug: String!) {
+  paintings(filters: { Slug: { eq: $slug } }) {
+    data {
+      attributes {
+        Title
+        Artist
+        Image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        Description
+        Price
+        Slug
+      }
+    }
+  }
+}

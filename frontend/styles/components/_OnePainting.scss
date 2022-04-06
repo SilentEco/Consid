@@ -1,0 +1,37 @@
+.onePainting {
+  display: flex;
+  flex-direction: row;
+  border: solid;
+  width: 800px;
+  height: 480px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+
+  .leftColumn {
+    .image {
+      position: relative;
+      width: 480px;
+      height: 480px;
+    }
+  }
+
+  .rightColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+    padding: 50px 10px;
+
+    &__top {
+      h1 {
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
+  }
+}
