@@ -17,6 +17,7 @@ import {
 } from "lib/redux/dispatch";
 import { useDispatch } from "react-redux";
 import Button from "@components/Button";
+import { toast } from "react-toastify";
 
 interface paintingTypes {
   painting: Painting;
@@ -24,8 +25,19 @@ interface paintingTypes {
 
 const Painting = ({ painting }: paintingTypes) => {
   const dispatch = useDispatch();
-
+  const notify = () => {
+    toast.success("Added to cart!", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+    });
+  };
   const handleClick = () => {
+    notify();
     addToCartDispatch(dispatch);
     addPaintingDispatch(
       painting.Title!,
