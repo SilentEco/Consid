@@ -4,8 +4,10 @@
 @import "abstracts/globals";
 @import "abstracts/breakpoints";
 
-//Pages
-
 //Components
-@import "components/Painting";
-@import "components/OnePainting";
+@import "components/painting";
+@import "components/onePainting";
+@import "components/navbar";
+@import "components/shoppingcart";
+@import "components/button";
+@import "components/form";

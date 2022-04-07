@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import nftReducer from "../features/nftSlice";
+import paintingReducer from "../features/paintingSlice";
 import amountReducer from "../features/amountSlice";
 import cartReducer from "../features/shoppingcartSlice";
 import storage from "../storage";
@@ -22,13 +22,13 @@ const persistConfig = {
 const combinedReducers = combineReducers({
   cartReducer,
   amountReducer,
-  nftReducer,
+  paintingReducer,
 });
 const persist = persistReducer(persistConfig, combinedReducers);
 
 export const store = configureStore({
   reducer: {
-    nft: persist,
+    painting: persist,
     amount: persist,
     cart: persist,
   },

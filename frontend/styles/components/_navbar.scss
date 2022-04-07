@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: whitesmoke;
+  box-shadow: 4px 0 3px #333;
+  padding: 0.3em 0;
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30em;
+
+    h1 {
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      transition: all ease-in-out 0.2s;
+      color: black;
+
+      &:hover {
+        transform: scale(120%);
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.formWrapper {
+  height: 100%;
+  border: solid;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+  }
+
+  .personalForm {
+    input {
+      margin-bottom: 10px;
+    }
+  }
+  .billingForm {
+    .detailWrapper {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 10px;
+      .exp {
+        .details {
+          input {
+            border: 0;
+            text-align: center;
+            width: 30px;
+            margin-top: 10px;
+          }
+        }
+      }
+      .cvc {
+        input {
+          margin-top: 10px;
+          border: 0;
+          text-align: end;
+          width: 30px;
+        }
+      }
+    }
+  }
+}

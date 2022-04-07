@@ -21,6 +21,11 @@
     },
     "strict": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/Navigation/index.pxq"
+  ],
   "exclude": ["node_modules"]
 }

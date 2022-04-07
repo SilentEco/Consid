@@ -8,14 +8,34 @@ import {
 } from "generated/graphql";
 import { initializeApollo } from "lib/apollo";
 import { GetStaticPaths, GetStaticProps } from "next";
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import Image from "next/image";
+import {
+  addAmountDispatch,
+  addPaintingDispatch,
+  addToCartDispatch,
+} from "lib/redux/dispatch";
+import { useDispatch } from "react-redux";
+import Button from "@components/Button";
 
 interface paintingTypes {
   painting: Painting;
 }
 
 const Painting = ({ painting }: paintingTypes) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    addToCartDispatch(dispatch);
+    addPaintingDispatch(
+      painting.Title!,
+      painting.Price!,
+      painting.Image?.data?.attributes?.url!,
+      dispatch
+    );
+    addAmountDispatch(painting.Price!, dispatch);
+  };
+
   return (
     <div className="onePainting">
       <div className="leftColumn">
@@ -30,10 +50,12 @@ const Painting = ({ painting }: paintingTypes) => {
       <div className="rightColumn">
         <div className="rightColumn__top">
           <h1>{painting.Title!}</h1>
-          <h2>{painting.Artist!}</h2>
+          <h2>Artist: {painting.Artist!}</h2>
         </div>
         <div className="rightColumn__bottom">
-          <button>{painting.Price} Kr • Add to cart</button>
+          <Button onClick={() => handleClick()}>
+            {painting.Price} Kr • Add to cart
+          </Button>
         </div>
       </div>
     </div>
@@ -65,8 +87,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug,
     },
   });
-
-  console.log(data.paintings?.data[0].attributes);
 
   return {
     props: {
