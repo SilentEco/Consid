@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_options_frames",
+  "info": {
+    "displayName": "Frame",
+    "icon": "archway",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "enumeration",
+      "enum": [
+        "Transparent",
+        "Blue",
+        "Red",
+        "Yellow",
+        "Black",
+        "Pink"
+      ]
+    }
+  }
+}

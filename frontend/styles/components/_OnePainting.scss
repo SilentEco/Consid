@@ -1,37 +1,106 @@
-.onePainting {
+.onePaintingWrapper {
   display: flex;
-  flex-direction: row;
-  box-shadow: 0 2px 4px #333;
-  width: 800px;
-  height: 480px;
-  margin: 0 auto;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  height: 90vh;
+  width: 100vw;
 
-  .leftColumn {
-    .image {
-      position: relative;
-      width: 480px;
-      height: 480px;
-    }
-  }
-
-  .rightColumn {
+  .onePainting {
+    min-width: 800px;
+    min-height: 480px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    box-shadow: 0 2px 4px #333;
+    margin: 0 auto;
+    align-items: center;
     justify-content: space-between;
 
-    width: 100%;
-    height: 100%;
-    padding: 50px 10px;
+    .leftColumn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
 
-    &__top {
-      h1 {
-        font-size: 30px;
+      .Small {
+        position: relative;
+        width: 160px;
+        height: 160px;
       }
-      h2 {
-        font-size: 20px;
-        margin-top: 10px;
+
+      .Medium {
+        position: relative;
+        width: 320px;
+        height: 320px;
+      }
+
+      .Large {
+        position: relative;
+        width: 480px;
+        height: 480px;
+      }
+    }
+
+    .rightColumn {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 40%;
+      height: 100%;
+      padding-inline: 15px;
+      &__top {
+        h1 {
+          font-size: 30px;
+        }
+        h2 {
+          font-size: 20px;
+          margin-top: 10px;
+        }
+      }
+
+      &__middle {
+        hr {
+          width: 100%;
+        }
+        .frameWrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          div {
+            display: flex;
+            justify-content: space-between;
+          }
+          .frame {
+            height: 45px;
+            width: 45px;
+            border: solid black 1px;
+          }
+        }
+
+        .backgroundWrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          div {
+            display: flex;
+            justify-content: space-between;
+          }
+          margin: 10px 0;
+          .background {
+            height: 45px;
+            width: 45px;
+          }
+        }
+
+        .sizeWrapper {
+          gap: 5px;
+          display: flex;
+          flex-direction: column;
+          div {
+            display: flex;
+            justify-content: space-around;
+          }
+        }
       }
     }
   }

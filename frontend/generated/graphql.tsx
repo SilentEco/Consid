@@ -43,6 +43,60 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type ComponentOptionsBackground = {
+  __typename?: 'ComponentOptionsBackground';
+  Value?: Maybe<Enum_Componentoptionsbackground_Value>;
+  id: Scalars['ID'];
+};
+
+export type ComponentOptionsBackgroundFiltersInput = {
+  Value?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentOptionsBackgroundFiltersInput>>>;
+  not?: InputMaybe<ComponentOptionsBackgroundFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentOptionsBackgroundFiltersInput>>>;
+};
+
+export type ComponentOptionsBackgroundInput = {
+  Value?: InputMaybe<Enum_Componentoptionsbackground_Value>;
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentOptionsFrame = {
+  __typename?: 'ComponentOptionsFrame';
+  Value?: Maybe<Enum_Componentoptionsframe_Value>;
+  id: Scalars['ID'];
+};
+
+export type ComponentOptionsFrameFiltersInput = {
+  Value?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentOptionsFrameFiltersInput>>>;
+  not?: InputMaybe<ComponentOptionsFrameFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentOptionsFrameFiltersInput>>>;
+};
+
+export type ComponentOptionsFrameInput = {
+  Value?: InputMaybe<Enum_Componentoptionsframe_Value>;
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentOptionsSize = {
+  __typename?: 'ComponentOptionsSize';
+  Value?: Maybe<Enum_Componentoptionssize_Value>;
+  id: Scalars['ID'];
+};
+
+export type ComponentOptionsSizeFiltersInput = {
+  Value?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentOptionsSizeFiltersInput>>>;
+  not?: InputMaybe<ComponentOptionsSizeFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentOptionsSizeFiltersInput>>>;
+};
+
+export type ComponentOptionsSizeInput = {
+  Value?: InputMaybe<Enum_Componentoptionssize_Value>;
+  id?: InputMaybe<Scalars['ID']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -65,6 +119,30 @@ export type DateTimeFilterInput = {
   or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   startsWith?: InputMaybe<Scalars['DateTime']>;
 };
+
+export enum Enum_Componentoptionsbackground_Value {
+  Black = 'Black',
+  Blue = 'Blue',
+  Pink = 'Pink',
+  Red = 'Red',
+  Transparent = 'Transparent',
+  Yellow = 'Yellow'
+}
+
+export enum Enum_Componentoptionsframe_Value {
+  Black = 'Black',
+  Blue = 'Blue',
+  Pink = 'Pink',
+  Red = 'Red',
+  Transparent = 'Transparent',
+  Yellow = 'Yellow'
+}
+
+export enum Enum_Componentoptionssize_Value {
+  Large = 'Large',
+  Medium = 'Medium',
+  Small = 'Small'
+}
 
 export type FileInfoInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
@@ -95,7 +173,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = I18NLocale | Painting | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentOptionsBackground | ComponentOptionsFrame | ComponentOptionsSize | I18NLocale | Painting | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -397,13 +475,36 @@ export type PaginationArg = {
 export type Painting = {
   __typename?: 'Painting';
   Artist?: Maybe<Scalars['String']>;
-  Description?: Maybe<Scalars['String']>;
+  Background?: Maybe<Array<Maybe<ComponentOptionsBackground>>>;
+  Frame?: Maybe<Array<Maybe<ComponentOptionsFrame>>>;
   Image?: Maybe<UploadFileEntityResponse>;
   Price?: Maybe<Scalars['Long']>;
+  Size?: Maybe<Array<Maybe<ComponentOptionsSize>>>;
   Slug?: Maybe<Scalars['String']>;
   Title?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type PaintingBackgroundArgs = {
+  filters?: InputMaybe<ComponentOptionsBackgroundFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type PaintingFrameArgs = {
+  filters?: InputMaybe<ComponentOptionsFrameFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type PaintingSizeArgs = {
+  filters?: InputMaybe<ComponentOptionsSizeFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type PaintingEntity = {
@@ -425,7 +526,6 @@ export type PaintingEntityResponseCollection = {
 
 export type PaintingFiltersInput = {
   Artist?: InputMaybe<StringFilterInput>;
-  Description?: InputMaybe<StringFilterInput>;
   Price?: InputMaybe<LongFilterInput>;
   Slug?: InputMaybe<StringFilterInput>;
   Title?: InputMaybe<StringFilterInput>;
@@ -439,9 +539,11 @@ export type PaintingFiltersInput = {
 
 export type PaintingInput = {
   Artist?: InputMaybe<Scalars['String']>;
-  Description?: InputMaybe<Scalars['String']>;
+  Background?: InputMaybe<Array<InputMaybe<ComponentOptionsBackgroundInput>>>;
+  Frame?: InputMaybe<Array<InputMaybe<ComponentOptionsFrameInput>>>;
   Image?: InputMaybe<Scalars['ID']>;
   Price?: InputMaybe<Scalars['Long']>;
+  Size?: InputMaybe<Array<InputMaybe<ComponentOptionsSizeInput>>>;
   Slug?: InputMaybe<Scalars['String']>;
   Title?: InputMaybe<Scalars['String']>;
 };
@@ -846,9 +948,9 @@ export type GetOnePaintingQueryVariables = Exact<{
 }>;
 
 
-export type GetOnePaintingQuery = { __typename?: 'Query', paintings?: { __typename?: 'PaintingEntityResponseCollection', data: Array<{ __typename?: 'PaintingEntity', attributes?: { __typename?: 'Painting', Title?: string, Artist?: string, Description?: string, Price?: any, Slug?: string, Image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } } } } }> } };
+export type GetOnePaintingQuery = { __typename?: 'Query', paintings?: { __typename?: 'PaintingEntityResponseCollection', data: Array<{ __typename?: 'PaintingEntity', attributes?: { __typename?: 'Painting', Title?: string, Artist?: string, Price?: any, Slug?: string, Image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } } }, Background?: Array<{ __typename?: 'ComponentOptionsBackground', Value?: Enum_Componentoptionsbackground_Value }>, Frame?: Array<{ __typename?: 'ComponentOptionsFrame', Value?: Enum_Componentoptionsframe_Value }>, Size?: Array<{ __typename?: 'ComponentOptionsSize', Value?: Enum_Componentoptionssize_Value }> } }> } };
 
 export type GetPaintingsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPaintingsQuery = { __typename?: 'Query', paintings?: { __typename?: 'PaintingEntityResponseCollection', data: Array<{ __typename?: 'PaintingEntity', attributes?: { __typename?: 'Painting', Title?: string, Artist?: string, Description?: string, Price?: any, Slug?: string, Image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } } } } }> } };
+export type GetPaintingsQuery = { __typename?: 'Query', paintings?: { __typename?: 'PaintingEntityResponseCollection', data: Array<{ __typename?: 'PaintingEntity', attributes?: { __typename?: 'Painting', Title?: string, Artist?: string, Price?: any, Slug?: string, Image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } } }, Background?: Array<{ __typename?: 'ComponentOptionsBackground', Value?: Enum_Componentoptionsbackground_Value }>, Frame?: Array<{ __typename?: 'ComponentOptionsFrame', Value?: Enum_Componentoptionsframe_Value }>, Size?: Array<{ __typename?: 'ComponentOptionsSize', Value?: Enum_Componentoptionssize_Value }> } }> } };

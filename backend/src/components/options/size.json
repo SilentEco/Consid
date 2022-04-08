@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_options_sizes",
+  "info": {
+    "displayName": "Size",
+    "icon": "ambulance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "enumeration",
+      "enum": [
+        "Small",
+        "Medium",
+        "Large"
+      ]
+    }
+  }
+}

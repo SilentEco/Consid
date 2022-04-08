@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_options_backgrounds",
+  "info": {
+    "displayName": "Background",
+    "icon": "arrow-alt-circle-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "enumeration",
+      "enum": [
+        "Transparent",
+        "Blue",
+        "Red",
+        "Yellow",
+        "Black",
+        "Pink"
+      ]
+    }
+  }
+}

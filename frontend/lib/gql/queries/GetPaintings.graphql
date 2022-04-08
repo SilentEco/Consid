@@ -11,8 +11,16 @@ query GetPaintings {
             }
           }
         }
-        Description
         Price
+        Background {
+          Value
+        }
+        Frame {
+          Value
+        }
+        Size {
+          Value
+        }
         Slug
       }
     }

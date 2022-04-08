@@ -26,9 +26,6 @@
         "audios"
       ]
     },
-    "Description": {
-      "type": "text"
-    },
     "Price": {
       "type": "biginteger"
     },
@@ -38,6 +35,21 @@
     "Slug": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "Background": {
+      "type": "component",
+      "repeatable": true,
+      "component": "options.background"
+    },
+    "Frame": {
+      "type": "component",
+      "repeatable": true,
+      "component": "options.frame"
+    },
+    "Size": {
+      "type": "component",
+      "repeatable": true,
+      "component": "options.size"
     }
   }
 }

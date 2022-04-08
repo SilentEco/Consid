@@ -11,8 +11,16 @@ query GetOnePainting($slug: String!) {
             }
           }
         }
-        Description
         Price
+        Background {
+          Value
+        }
+        Frame {
+          Value
+        }
+        Size {
+          Value
+        }
         Slug
       }
     }

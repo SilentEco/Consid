@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
-    "@graphql-codegen/cli": "^2.6.1",
     "@reduxjs/toolkit": "^1.7.2",
     "@types/lodash.isequal": "^4.5.5",
     "deepmerge": "^4.2.2",

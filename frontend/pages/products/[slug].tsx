@@ -1,22 +1,21 @@
-import QUERY_GETPAINTINGS from "@queries/GetPaintings.graphql";
+import Button from "@components/Button";
 import QUERY_GETONEPAINTING from "@queries/GetOnePainting.graphql";
+import QUERY_GETPAINTINGS from "@queries/GetPaintings.graphql";
 import {
   GetOnePaintingQuery,
   GetPaintingsQuery,
   Painting,
-  PaintingEntityResponseCollection,
 } from "generated/graphql";
 import { initializeApollo } from "lib/apollo";
-import { GetStaticPaths, GetStaticProps } from "next";
-import React, { HTMLAttributes } from "react";
-import Image from "next/image";
 import {
   addAmountDispatch,
   addPaintingDispatch,
   addToCartDispatch,
 } from "lib/redux/dispatch";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import Button from "@components/Button";
 import { toast } from "react-toastify";
 
 interface paintingTypes {
@@ -24,6 +23,11 @@ interface paintingTypes {
 }
 
 const Painting = ({ painting }: paintingTypes) => {
+  const [frame, setFrame] = useState("white");
+  const [background, setBackground] = useState("transparent");
+  const [size, setSize] = useState("Large");
+  const [isChecked, setIsChecked] = useState(2);
+
   const dispatch = useDispatch();
   const notify = () => {
     toast.success("Added to cart!", {
@@ -48,26 +52,95 @@ const Painting = ({ painting }: paintingTypes) => {
     addAmountDispatch(painting.Price!, dispatch);
   };
 
+  const handleChecked = (index: number, value: string) => {
+    setIsChecked(index);
+    setSize(value);
+  };
+
   return (
-    <div className="onePainting">
-      <div className="leftColumn">
-        <div className="image">
-          <Image
-            src={painting.Image?.data?.attributes?.url!}
-            alt={painting.Title}
-            layout="fill"
-          />
+    <div className="onePaintingWrapper">
+      <div className="onePainting">
+        <div className="leftColumn">
+          <div
+            className={`${size}`}
+            style={{
+              backgroundColor: background,
+              border: `15px solid ${frame}`,
+            }}
+          >
+            <Image
+              src={painting.Image?.data?.attributes?.url!}
+              alt={painting.Title}
+              layout="fill"
+            />
+          </div>
         </div>
-      </div>
-      <div className="rightColumn">
-        <div className="rightColumn__top">
-          <h1>{painting.Title!}</h1>
-          <h2>Artist: {painting.Artist!}</h2>
-        </div>
-        <div className="rightColumn__bottom">
-          <Button onClick={() => handleClick()}>
-            {painting.Price} Kr • Add to cart
-          </Button>
+        <div className="rightColumn">
+          <div className="rightColumn__top">
+            <h1>{painting.Title!}</h1>
+            <h2 style={{ marginBottom: "80px" }}>Artist: {painting.Artist!}</h2>
+          </div>
+          <div className="rightColumn__middle">
+            <hr />
+            <div className="frameWrapper">
+              <h1>Frame select</h1>
+              <div>
+                {painting.Frame?.map(({ Value }, index) => (
+                  <div
+                    key={index}
+                    className={`frame`}
+                    style={{
+                      border: `3px solid ${
+                        Value === "Transparent" ? "Gray" : Value
+                      }`,
+                    }}
+                    onClick={() => setFrame(Value!)}
+                  ></div>
+                ))}
+              </div>
+            </div>
+            <div className="backgroundWrapper">
+              <h1>Background select</h1>
+              <div>
+                {painting.Background?.map(({ Value }, index) => (
+                  <div
+                    key={index}
+                    className={`background`}
+                    style={{
+                      backgroundColor: Value,
+                      border: `1px solid ${
+                        Value === "Transparent" ? "Gray" : Value
+                      }`,
+                    }}
+                    onClick={() => setBackground(Value!)}
+                  ></div>
+                ))}
+              </div>
+            </div>
+            <div className="sizeWrapper">
+              <h1>Size select</h1>
+              <div>
+                {painting.Size?.map(({ Value }, index) => (
+                  <div key={index} className={`size`}>
+                    <input
+                      value={index}
+                      type={"radio"}
+                      checked={index === isChecked}
+                      name="size"
+                      onChange={() => handleChecked(index, Value!)}
+                    />
+                    {Value}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div className="rightColumn__bottom">
+            <Button onClick={() => handleClick()}>
+              {painting.Price} Kr • Add to cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>
