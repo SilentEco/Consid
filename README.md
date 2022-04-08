@@ -4,7 +4,7 @@
 
 ⚠️ OBS Du måste vara i consid/backend foldern innan du börjar ⚠️
 
-Steg 1. Kör en yarn install
+Steg 1. Kör en yarn install i terminalen
 ---------------------------------------------------------------------------------
 Steg 2. Skapa en .env fil som ska ligga i roten av backendmappen med följande:
 ---------------------------------------------------------------------------------
@@ -36,17 +36,24 @@ CLOUDINARY_API_KEY=337776556649176
 
 CLOUDINARY_API_SECRET=GhemB69nHyxUUp5yDSf1M16lcJQ
 
-Steg 3. Starta servern med yarn develop. (Låt denna vara igång eftersom frontend installationen kräver att backenden är igång)
+Steg 3. Starta servern med yarn develop i terminalen. (Låt denna vara igång eftersom frontend installationen kräver att backenden är igång)
 ---------------------------------------------------------------------------------
 ⚡ Frontend
 
 ⚠️ OBS Du måste vara i consid/frontend foldern innan du börjar ⚠️
 
-Steg 1. Kör en yarn install.
+Steg 1. Kör en yarn install i terminalen.
 ---------------------------------------------------------------------------------
-Steg 2. Kör en yarn build.
+Steg 2. Kör en yarn build i terminalen.
 ---------------------------------------------------------------------------------
-Steg 3. Kör en yarn start.
+Steg 3. Kör en yarn start i terminalen.
 ---------------------------------------------------------------------------------
+📌 Användning
 
 Sen är det bara att surfa in på http://localhost:3000 
+
+För att använda strapi (CMS), surfa in på http://localhost:1337 och använd inloggningsuppgifterna:
+
+Email: admin@admin.com
+
+Password: Password1
