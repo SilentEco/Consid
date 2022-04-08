@@ -13,6 +13,7 @@ import {
   addPaintingDispatch,
   addToCartDispatch,
 } from "lib/redux/dispatch";
+import { addToCart } from "lib/redux/features/shoppingcartSlice";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import React, { useState } from "react";

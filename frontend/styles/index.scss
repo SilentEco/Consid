@@ -4,11 +4,14 @@
 @import "abstracts/globals";
 @import "abstracts/breakpoints";
 
+//Pages
+@import "components/shoppingcart";
+@import "components/thankyou";
+@import "components/about";
+
 //Components
 @import "components/painting";
 @import "components/onePainting";
 @import "components/navbar";
-@import "components/shoppingcart";
 @import "components/button";
 @import "components/form";
-@import "components/thankyou";

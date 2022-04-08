@@ -36,5 +36,13 @@
         transform: scale(120%);
       }
     }
+    .cart {
+      display: flex;
+      align-items: center;
+      p {
+        font-weight: 600;
+        padding-left: 10px;
+      }
+    }
   }
 }

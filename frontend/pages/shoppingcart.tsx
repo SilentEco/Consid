@@ -23,8 +23,6 @@ const Shoppingcart = () => {
     removeAmountDispatch(price, dispatch);
   };
 
-  const handleClick = () => {};
-
   useEffect(() => {
     const total = cart.map((price) => price.price).reduce((a, b) => a + b, 0);
     setTotalPrice(total);
