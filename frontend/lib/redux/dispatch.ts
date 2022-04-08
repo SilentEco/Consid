@@ -7,6 +7,9 @@ export const addPaintingDispatch = (
   name: string,
   price: number,
   image: string,
+  frame: string,
+  background: string,
+  size: string,
   dispatch: AppDispatch
 ) => {
   dispatch(
@@ -14,6 +17,9 @@ export const addPaintingDispatch = (
       name: name,
       price: price,
       image: image,
+      frame: frame,
+      background: background,
+      size: size,
     })
   );
 };

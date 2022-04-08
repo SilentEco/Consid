@@ -1,3 +1,4 @@
+import Backbtn from "@components/Backbutton";
 import Button from "@components/Button";
 import QUERY_GETONEPAINTING from "@queries/GetOnePainting.graphql";
 import QUERY_GETPAINTINGS from "@queries/GetPaintings.graphql";
@@ -47,6 +48,10 @@ const Painting = ({ painting }: paintingTypes) => {
       painting.Title!,
       painting.Price!,
       painting.Image?.data?.attributes?.url!,
+      frame,
+      background,
+      size,
+
       dispatch
     );
     addAmountDispatch(painting.Price!, dispatch);
@@ -78,7 +83,7 @@ const Painting = ({ painting }: paintingTypes) => {
         <div className="rightColumn">
           <div className="rightColumn__top">
             <h1>{painting.Title!}</h1>
-            <h2 style={{ marginBottom: "80px" }}>Artist: {painting.Artist!}</h2>
+            <h2>Artist: {painting.Artist!}</h2>
           </div>
           <div className="rightColumn__middle">
             <hr />
@@ -90,9 +95,7 @@ const Painting = ({ painting }: paintingTypes) => {
                     key={index}
                     className={`frame`}
                     style={{
-                      border: `3px solid ${
-                        Value === "Transparent" ? "Gray" : Value
-                      }`,
+                      border: `3px solid ${Value}`,
                     }}
                     onClick={() => setFrame(Value!)}
                   ></div>
@@ -108,9 +111,7 @@ const Painting = ({ painting }: paintingTypes) => {
                     className={`background`}
                     style={{
                       backgroundColor: Value,
-                      border: `1px solid ${
-                        Value === "Transparent" ? "Gray" : Value
-                      }`,
+                      border: `1px solid black`,
                     }}
                     onClick={() => setBackground(Value!)}
                   ></div>
@@ -143,6 +144,7 @@ const Painting = ({ painting }: paintingTypes) => {
           </div>
         </div>
       </div>
+      <Backbtn />
     </div>
   );
 };

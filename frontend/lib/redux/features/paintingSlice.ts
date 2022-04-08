@@ -4,6 +4,9 @@ interface Painting {
   name: string;
   price: number;
   image: string;
+  frame: string;
+  background: string;
+  size: string;
 }
 
 interface PaintingState {

@@ -125,7 +125,7 @@ export enum Enum_Componentoptionsbackground_Value {
   Blue = 'Blue',
   Pink = 'Pink',
   Red = 'Red',
-  Transparent = 'Transparent',
+  White = 'White',
   Yellow = 'Yellow'
 }
 
@@ -134,7 +134,7 @@ export enum Enum_Componentoptionsframe_Value {
   Blue = 'Blue',
   Pink = 'Pink',
   Red = 'Red',
-  Transparent = 'Transparent',
+  White = 'White',
   Yellow = 'Yellow'
 }
 

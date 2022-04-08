@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 30em;
+    width: 35em;
 
     h1 {
       font-weight: 600;
@@ -21,10 +21,16 @@
     }
 
     a {
+      display: flex;
       text-decoration: none;
       font-size: 18px;
       transition: all ease-in-out 0.2s;
       color: black;
+
+      svg {
+        font-size: 25px;
+        margin-left: 5px;
+      }
 
       &:hover {
         transform: scale(120%);

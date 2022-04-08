@@ -10,7 +10,7 @@
     "Value": {
       "type": "enumeration",
       "enum": [
-        "Transparent",
+        "White",
         "Blue",
         "Red",
         "Yellow",
