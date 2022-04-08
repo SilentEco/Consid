@@ -1,0 +1,27 @@
+.thankyouContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+  height: 80vh;
+  width: 60vw;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid black;
+
+  h1 {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 100px;
+    text-align: center;
+  }
+
+  svg {
+    font-size: 300px;
+    color: green;
+  }
+}

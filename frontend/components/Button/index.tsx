@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 interface buttonTypes {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({ children, onClick }: buttonTypes) => {

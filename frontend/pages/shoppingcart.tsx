@@ -1,14 +1,15 @@
+import Backbtn from "@components/Backbutton";
+import Button from "@components/Button";
 import { RootState } from "lib/redux/app/store";
 import {
-  removeFromCartDispatch,
   removeAmountDispatch,
+  removeFromCartDispatch,
   removePaintingDispatch,
 } from "lib/redux/dispatch";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Image from "next/image";
-
-import Backbtn from "@components/Backbutton";
 
 const Shoppingcart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -21,6 +22,8 @@ const Shoppingcart = () => {
     removePaintingDispatch(name, dispatch);
     removeAmountDispatch(price, dispatch);
   };
+
+  const handleClick = () => {};
 
   useEffect(() => {
     const total = cart.map((price) => price.price).reduce((a, b) => a + b, 0);
@@ -78,9 +81,17 @@ const Shoppingcart = () => {
         ))}
       </ul>
       <div className="checkoutContainer">
-        <p>TOTAL AMOUNT: {totalPrice}</p>
+        <Backbtn />
+        <Link passHref href={"/checkout"}>
+          <Button>
+            <span>
+              Checkout
+              <br />
+            </span>
+            Total: {totalPrice}:-
+          </Button>
+        </Link>
       </div>
-      <Backbtn />
     </div>
   );
 };

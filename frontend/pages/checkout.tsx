@@ -1,8 +1,11 @@
+import Button from "@components/Button";
+import Link from "next/link";
 import React from "react";
 
 const Checkout = () => {
   return (
     <div className="formWrapper">
+      <h1>Checkout</h1>
       <form className="form personalForm">
         <label htmlFor="fname">First name</label>
         <input id="fname" type="text" />
@@ -39,6 +42,9 @@ const Checkout = () => {
             </div>
           </div>
         </div>
+        <Link passHref href={"/thankyou"}>
+          <Button> Place order! </Button>
+        </Link>
       </form>
     </div>
   );
